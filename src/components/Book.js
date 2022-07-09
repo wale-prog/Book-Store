@@ -22,12 +22,14 @@ function Book({ List: { title, author } }) {
 
 Book.defaultProps = {
   List: null,
+  title: null,
+  author: null,
 };
 
 Book.propTypes = {
   List: null,
-  author: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
+  author: PropTypes.string,
+  title: PropTypes.string,
 };
 
 export default Book;

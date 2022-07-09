@@ -8,7 +8,7 @@ const AddBooks = (props) => {
     title: '',
     author: '',
   });
- 
+
   const handleKeydown = (event) => {
     setInput({
       ...input,
@@ -19,23 +19,25 @@ const AddBooks = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     if(input.title.trim() && input.author.trim()){
-      props.handleAddbooks(input.title, input.author);
+      props.handleAddBooks(input.title, input.author);
       setInput({
-        title: ''
+        title: '',
+        author: ''
       })
     }else {
       alert('Please input title and author')
     }    
   }
+  
   return (
-    <form className="form">
+    <form className="form" onSubmit={handleSubmit}>
       <input
         type="text"
         placeholder="Title"
         name="title"
         value={input.title}
         onChange={handleKeydown}
-        onSubmit={handleSubmit}
+        
       />
       <input
         type="text"

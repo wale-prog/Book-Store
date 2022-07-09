@@ -23,12 +23,12 @@ const BooksList = () => {
   ];
 
   const [books, setBooks] = useState(bookslist)
-
+ 
   const handleAddBooks = (title, author) => {
     const newBook = {
+      id: books.length + 1,
       title,
       author,
-      id: bookslist.length,
     };
     setBooks([...books, newBook])
   };
