@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import './Nav.css';
 
 const Nav = () => (
   <div>
@@ -10,12 +11,12 @@ const Nav = () => (
         gap: '10px',
       }}
     >
-      <li>
+      <li className="list-item">
         <NavLink activeStyle={{ color: 'orangered' }} to="/home">
           BOOKS
         </NavLink>
       </li>
-      <li>
+      <li className="list-item">
         <NavLink activeStyle={{ color: 'orangered' }} to="categories">
           CATEGORIES
         </NavLink>

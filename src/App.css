@@ -1,6 +1,8 @@
 .header {
   display: flex;
   justify-content: space-between;
-  margin-right: 24px;
+  /* margin-right: 24px; */
   align-items: center;
+  padding: 12px;
+  background-color: blueviolet;
 }
