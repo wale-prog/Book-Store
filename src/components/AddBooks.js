@@ -1,12 +1,15 @@
 /* eslint-disable */
+import React, { useState } from "react";
+import { useDispatch } from "react-redux/";
+import { addbook } from "../redux/books/books";
+import "./Addbooks.css";
 
-import React, { useState } from 'react';
-import './Addbooks.css';
+const AddBooks = () => {
+  const dispatch = useDispatch();
 
-const AddBooks = (props) => {
   const [input, setInput] = useState({
-    title: '',
-    author: '',
+    title: "",
+    author: "",
   });
 
   const handleKeydown = (event) => {
@@ -18,17 +21,20 @@ const AddBooks = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if(input.title.trim() && input.author.trim()){
-      props.handleAddBooks(input.title, input.author);
-      setInput({
-        title: '',
-        author: ''
-      })
-    }else {
-      alert('Please input title and author')
-    }    
-  }
-  
+    if (input.title.trim() && input.author.trim()) {
+      dispatch(
+        addbook({
+          title: input.title,
+          author: input.author,
+        })
+      );
+    }
+    setInput({
+      title: '',
+      author: ''
+    })
+  };
+
   return (
     <form className="form" onSubmit={handleSubmit}>
       <input
@@ -37,7 +43,6 @@ const AddBooks = (props) => {
         name="title"
         value={input.title}
         onChange={handleKeydown}
-        
       />
       <input
         type="text"

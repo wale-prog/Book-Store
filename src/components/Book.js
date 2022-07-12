@@ -1,8 +1,19 @@
+/* eslint-disable */
 import React from 'react';
-import PropTypes from 'prop-types';
 import './Book.css';
+import { useDispatch } from 'react-redux'
+import { delBook } from '../redux/books/books';
 
-function Book({ List: { title, author } }) {
+function Book({ List: { title, author, id} }) {
+
+  const dispatch = useDispatch()  
+
+  const handleDelete = () => {
+    dispatch(delBook({
+      id,
+    }))
+  }
+  
   return (
     <div>
       <div className="main">
@@ -12,7 +23,7 @@ function Book({ List: { title, author } }) {
       <ul className="list">
         <li>Comments</li>
         <li>
-          <button type="button">Remove</button>
+          <button onClick={handleDelete} type="button">Remove</button>
         </li>
         <li>Edit</li>
       </ul>
@@ -20,16 +31,5 @@ function Book({ List: { title, author } }) {
   );
 }
 
-Book.defaultProps = {
-  List: null,
-  title: null,
-  author: null,
-};
-
-Book.propTypes = {
-  List: null,
-  author: PropTypes.string,
-  title: PropTypes.string,
-};
 
 export default Book;

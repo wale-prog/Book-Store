@@ -1,44 +1,18 @@
 /* eslint-disable */
-import React, { useState } from "react";
+import React from "react";
+import { useSelector } from "react-redux";
 import Book from "./Book";
 import AddBooks from "./AddBooks";
 
 const BooksList = () => {
-  const bookslist = [
-    {
-      title: "Battleship",
-      author: "Peter Berg",
-      id: 1,
-    },
-    {
-      title: "Eat, pray, love",
-      author: "Ryan Murphy",
-      id: 2,
-    },
-    {
-      title: "Doctor strange",
-      author: "Sam Raimi",
-      id: 3,
-    },
-  ];
-
-  const [books, setBooks] = useState(bookslist)
- 
-  const handleAddBooks = (title, author) => {
-    const newBook = {
-      id: books.length + 1,
-      title,
-      author,
-    };
-    setBooks([...books, newBook])
-  };
-
+  const bookCollection = useSelector(state => state.books);
+  
   return (
     <div>
-      {books.map((item) => (
+      {bookCollection.map((item) => (
         <Book key={item.id} List={item} />
       ))}
-      <AddBooks handleAddBooks={handleAddBooks} />
+      <AddBooks />
     </div>
   );
 };
