@@ -1,15 +1,14 @@
-/* eslint-disable */
-import React, { useState } from "react";
-import { useDispatch } from "react-redux/";
-import { addbook } from "../redux/books/books";
-import "./Addbooks.css";
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux/';
+import { addbook } from '../redux/books/books';
+import './Addbooks.css';
 
 const AddBooks = () => {
   const dispatch = useDispatch();
 
   const [input, setInput] = useState({
-    title: "",
-    author: "",
+    title: '',
+    author: '',
   });
 
   const handleKeydown = (event) => {
@@ -26,8 +25,8 @@ const AddBooks = () => {
     }
     setInput({
       title: '',
-      author: ''
-    })
+      author: '',
+    });
   };
 
   return (
