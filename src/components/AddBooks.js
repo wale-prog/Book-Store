@@ -22,12 +22,7 @@ const AddBooks = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (input.title.trim() && input.author.trim()) {
-      dispatch(
-        addbook({
-          title: input.title,
-          author: input.author,
-        })
-      );
+      dispatch(addbook(input));
     }
     setInput({
       title: '',
@@ -41,6 +36,7 @@ const AddBooks = () => {
         type="text"
         placeholder="Title"
         name="title"
+        required
         value={input.title}
         onChange={handleKeydown}
       />
@@ -48,6 +44,7 @@ const AddBooks = () => {
         type="text"
         placeholder="Author"
         name="author"
+        required
         value={input.author}
         onChange={handleKeydown}
       />

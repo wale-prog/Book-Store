@@ -8,11 +8,7 @@ function Book({ List: { title, author, id} }) {
 
   const dispatch = useDispatch()  
 
-  const handleDelete = () => {
-    dispatch(delBook({
-      id,
-    }))
-  }
+  const handleDelete = () => dispatch(delBook(id))
   
   return (
     <div>

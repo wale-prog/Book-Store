@@ -1,5 +1,5 @@
 /* eslint-disable */
-
+import { v4 as uuidv4 } from 'uuid';
 const ADD_BOOK = "ADD_BOOK";
 const DEL_BOOK = "DEL_BOOK";
 
@@ -9,15 +9,13 @@ const bookReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_BOOK: {
       const newBook = {
-        id: state.length,
-        title: action.book.title,
-        author: action.book.author,
+        id: uuidv4(),
+        ...action.book,
       };
       return [...state, newBook]
     }
     case DEL_BOOK: {
-        const deleteBook = state.filter(book => book.id !== action.id);
-        return [...state, ...[deleteBook]]
+        return state.filter(book => book.id !== action.id);
     }
     default: return state;
   }
