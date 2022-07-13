@@ -47,7 +47,7 @@ const AddBooks = () => {
         value={input.author}
         onChange={handleKeydown}
       />
-      <button type="submit">Submit</button>
+      <button type="submit">Add new</button>
     </form>
   );
 };

@@ -3,7 +3,11 @@ import { v4 as uuidv4 } from 'uuid';
 const ADD_BOOK = 'bookstore/books/ADD_BOOK';
 const DEL_BOOK = 'bookstore/books/DEL_BOOK';
 
-const initialState = [];
+const initialState = [
+  { title: 'Think Again', author: 'Adam Grant' },
+  { title: 'The Power of Focus', author: 'Jack Canfield' },
+  { title: 'The Psychology of Money', author: 'Morgan Housel' },
+];
 
 const bookReducer = (state = initialState, action) => {
   switch (action.type) {
