@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import { useDispatch } from 'react-redux/';
-import { addbook } from '../redux/books/books';
+import { addbook } from '../redux/books/asyncActions';
 import './Addbooks.css';
 
 const AddBooks = () => {
@@ -9,12 +10,16 @@ const AddBooks = () => {
   const [input, setInput] = useState({
     title: '',
     author: '',
+    item_id: '',
+    category: '',
   });
 
   const handleKeydown = (event) => {
     setInput({
       ...input,
       [event.target.name]: event.target.value,
+      category: 'Fiction',
+      item_id: uuidv4(),
     });
   };
 
