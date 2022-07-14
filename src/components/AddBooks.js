@@ -10,8 +10,8 @@ const AddBooks = () => {
   const [input, setInput] = useState({
     title: '',
     author: '',
-    item_id: '',
     category: '',
+    item_id: '',
   });
 
   const handleKeydown = (event) => {
@@ -26,7 +26,7 @@ const AddBooks = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (input.title.trim() && input.author.trim()) {
-      dispatch(addbook(input));
+      dispatch(addbook(input)).then((data) => data);
     }
     setInput({
       title: '',

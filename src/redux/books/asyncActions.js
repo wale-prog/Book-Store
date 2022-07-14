@@ -1,37 +1,27 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-// import { useDispatch } from 'react-redux/';
 import bookServices from '../../services/bookServices';
 
 export const ADD_ASYNC_BOOK = 'bookstore/ADD_ASYNC_BOOK';
 export const DELETE_ASYNC_BOOK = 'bookstore/DELETE_ASYNC_BOOK';
 export const GET_ASYNC_BOOK = 'bookstore/GET_ASYNC_BOOK';
 
-export const addbook = (input) => async (dispatch) => {
-  try {
-    const response = await bookServices.create({
-      ...input,
-    });
-    dispatch({
-      type: ADD_ASYNC_BOOK,
-      payload: response.data,
-    });
-    return Promise.resolve(response.data);
-  } catch (error) {
-    return Promise.reject(error);
-  }
-};
+export const addbook = createAsyncThunk(
+  ADD_ASYNC_BOOK,
+  async (book) => {
+    const response = await bookServices.create(book);
+    const { data } = response;
+    return { book, data };
+  },
+);
 
-export const deleteBook = (id) => async (dispatch) => {
-  try {
-    await bookServices.remove(id);
-    dispatch({
-      type: DELETE_ASYNC_BOOK,
-      payload: { id },
-    });
-  } catch (error) {
-    console.log(error);
-  }
-};
+export const deleteBook = createAsyncThunk(
+  DELETE_ASYNC_BOOK,
+  async (id) => {
+    const response = await bookServices.remove(id);
+    const { data } = response;
+    return { id, data };
+  },
+);
 
 const transform = (data) => {
   const arr = Object.entries(data);
@@ -51,7 +41,6 @@ export const getBooks = createAsyncThunk(
   async () => {
     const response = await bookServices.getAll();
     const data = transform(response.data);
-    console.log(data);
     return data;
   },
 );

@@ -1,13 +1,14 @@
+/* eslint-disable */
 import React from 'react';
 import PropTypes from 'prop-types';
 import './Book.css';
 import { useDispatch } from 'react-redux';
-import { deleteBook } from '../redux/books/asyncActions';
+import { deleteBook, getBooks } from '../redux/books/asyncActions';
 
-function Book({ List: { title, author, id } }) {
+function Book({ List: { title, author, item_id, category } }) {
   const dispatch = useDispatch();
-
-  const handleDelete = () => dispatch(deleteBook(id));
+  const input = {title, author, item_id, category}
+  const handleDelete = () => dispatch(deleteBook(input.item_id))
 
   return (
     <div>
@@ -29,14 +30,14 @@ function Book({ List: { title, author, id } }) {
 Book.defaultProps = {
   title: null,
   author: null,
-  id: null,
+  item_id: null,
 };
 
 Book.propTypes = {
   List: PropTypes.instanceOf(Object).isRequired,
   author: PropTypes.string,
   title: PropTypes.string,
-  id: PropTypes.number,
+  item_id: PropTypes.number,
 };
 
 export default Book;

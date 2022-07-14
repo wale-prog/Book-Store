@@ -9,10 +9,9 @@ const BooksList = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getBooks()).then((data) => {
-      console.log(data);
-    });
+    dispatch(getBooks()).then((data) => data);
   }, []);
+
   return (
     <div>
       {bookCollection.map((item) => (
