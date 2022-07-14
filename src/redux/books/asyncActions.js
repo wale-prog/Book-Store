@@ -1,4 +1,4 @@
-// import { createAsyncThunk } from '@reduxjs/toolkit';
+import { createAsyncThunk } from '@reduxjs/toolkit';
 // import { useDispatch } from 'react-redux/';
 import bookServices from '../../services/bookServices';
 
@@ -46,21 +46,12 @@ const transform = (data) => {
   return result;
 };
 
-export const getBooks = () => async (dispatch) => {
-  const response = await bookServices.getAll();
-  const data = transform(response.data);
-  dispatch({
-    type: GET_ASYNC_BOOK,
-    payload: data,
-  });
-};
-
-// export const getBooks = createAsyncThunk(
-//   GET_ASYNC_BOOK,
-//   async () => {
-//     const response = await bookServices.getAll();
-//     const data = transform(response.data);
-//     console.log(data);
-//     return data;
-//   },
-// );
+export const getBooks = createAsyncThunk(
+  GET_ASYNC_BOOK,
+  async () => {
+    const response = await bookServices.getAll();
+    const data = transform(response.data);
+    console.log(data);
+    return data;
+  },
+);

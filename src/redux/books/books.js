@@ -1,4 +1,4 @@
-import { ADD_ASYNC_BOOK, DELETE_ASYNC_BOOK, GET_ASYNC_BOOK } from './asyncActions';
+import { ADD_ASYNC_BOOK, DELETE_ASYNC_BOOK } from './asyncActions';
 
 const initialState = [];
 
@@ -10,7 +10,7 @@ const bookReducer = (state = initialState, action) => {
     case DELETE_ASYNC_BOOK: {
       return state.filter((book) => book.id !== action.payload);
     }
-    case GET_ASYNC_BOOK: {
+    case 'bookstore/GET_ASYNC_BOOK/fulfilled': {
       return action.payload;
     }
     default: return state;
