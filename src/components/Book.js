@@ -1,20 +1,19 @@
-/* eslint-disable */
 import React from 'react';
 import PropTypes from 'prop-types';
 import './Book.css';
 import { useDispatch } from 'react-redux';
-import { deleteBook, getBooks } from '../redux/books/asyncActions';
+import { deleteBook } from '../redux/books/asyncActions';
 
-function Book({ List: { title, author, item_id, category } }) {
+function Book({ List: book }) {
   const dispatch = useDispatch();
-  const input = {title, author, item_id, category}
-  const handleDelete = () => dispatch(deleteBook(input.item_id))
+
+  const handleDelete = () => dispatch(deleteBook(book.item_id));
 
   return (
     <div>
       <div className="main">
-        <h2>{ title }</h2>
-        <h3>{ author }</h3>
+        <h2>{ book.title }</h2>
+        <h3>{ book.author }</h3>
       </div>
       <ul className="list">
         <li>Comments</li>
