@@ -13,7 +13,7 @@ const BooksList = () => {
   }, []);
 
   return (
-    <div>
+    <div className="books-div">
       {bookCollection.map((item) => (
         <Book
           key={item.item_id}

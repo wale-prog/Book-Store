@@ -10,10 +10,11 @@ function Book({ List: book }) {
   const handleDelete = () => dispatch(deleteBook(book.item_id));
 
   return (
-    <div>
+    <div className="card">
       <div className="main">
-        <h2>{ book.title }</h2>
-        <h3>{ book.author }</h3>
+        <p className="category">{ book.category }</p>
+        <h2 className="title">{ book.title }</h2>
+        <h3 className="author">{ book.author }</h3>
       </div>
       <ul className="list">
         <li>Comments</li>
