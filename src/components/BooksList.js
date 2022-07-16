@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import Book from './Book';
 import AddBooks from './AddBooks';
 import { getBooks } from '../redux/books/asyncActions';
+import './BooksList.css';
 
 const BooksList = () => {
   const bookCollection = useSelector((state) => state.books);
