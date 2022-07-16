@@ -15,7 +15,7 @@
 - Git & Github
 
 ## Live Demo
-No live demo yet
+Live demo [link](https://wale-prog.github.io/Book-Store/)
 
 ## Getting Started
 
