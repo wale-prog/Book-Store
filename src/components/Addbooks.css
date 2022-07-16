@@ -10,7 +10,7 @@
   height: 2.813rem;
   width: 28.5%;
   font-size: 22px;
-  font-family: Montserrat;
+  font-family: 'Montserrat', sans-serif;
   margin-left: 4px;
 }
 
@@ -21,11 +21,11 @@
   opacity: 0.2;
   font-size: 24px;
   height: 63.313rem;
-  font-family: Montserrat;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .form button {
-  font-family: Roboto Slab;
+  font-family: 'Roboto Slab', serif;
   border: none;
   font-weight: 700;
   letter-spacing: 0.5px;
@@ -33,7 +33,7 @@
   padding: 0.871rem 1.3rem;
   background-color: #0290ff;
   border-radius: 4px;
-  color:#fff;
+  color: #fff;
   width: 20%;
 }
 
@@ -44,9 +44,9 @@
 
 .add-book {
   margin-left: 6.25rem;
-  color: #888888;
+  color: #888;
   font-size: 1.25rem;
-  font-family: Montserrat;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   letter-spacing: -0.18px;
   height: 1.5rem;
