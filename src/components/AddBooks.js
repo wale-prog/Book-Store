@@ -18,7 +18,7 @@ const AddBooks = () => {
     setInput({
       ...input,
       [event.target.name]: event.target.value,
-      category: 'Fiction',
+      category: 'Economy',
       item_id: uuidv4(),
     });
   };
@@ -35,25 +35,31 @@ const AddBooks = () => {
   };
 
   return (
-    <form className="form" onSubmit={handleSubmit}>
-      <input
-        type="text"
-        placeholder="Title"
-        name="title"
-        required
-        value={input.title}
-        onChange={handleKeydown}
-      />
-      <input
-        type="text"
-        placeholder="Author"
-        name="author"
-        required
-        value={input.author}
-        onChange={handleKeydown}
-      />
-      <button type="submit">Add new</button>
-    </form>
+    <div>
+      <div className="line" />
+      <div className="form-div">
+        <p className="add-book">ADD NEW BOOK</p>
+        <form className="form" onSubmit={handleSubmit}>
+          <input
+            type="text"
+            placeholder="Book title"
+            name="title"
+            required
+            value={input.title}
+            onChange={handleKeydown}
+          />
+          <input
+            type="text"
+            placeholder="Book author"
+            name="author"
+            required
+            value={input.author}
+            onChange={handleKeydown}
+          />
+          <button type="submit">ADD BOOK</button>
+        </form>
+      </div>
+    </div>
   );
 };
 export default AddBooks;
