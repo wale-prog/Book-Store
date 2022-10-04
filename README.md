@@ -2,7 +2,7 @@
 
 > Project Description.
 
-> "Bookstore" is a website app for tracking daily personal progress through the day. It is a Single Page App (SPA) that allows users to input a set of tasks and mark as completed or remove as soon as the tasks are done
+> "Bookstore" is a website app for tracking daily personal progress. It is a Single Page App (SPA) that allows users to input books and mark as completed or remove as soon as the user finish reading them.
 
 ## Built With
 
